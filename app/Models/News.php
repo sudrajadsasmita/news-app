@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Yajra\DataTables\Facades\DataTables;
 
 class News extends Model
 {
@@ -13,7 +14,8 @@ class News extends Model
         "title",
         "category_id",
         "content",
-        "picture"
+        "picture",
+        "created_by",
     ];
 
     /**

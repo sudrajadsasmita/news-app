@@ -23,8 +23,17 @@ Route::group([
     'middleware' => 'auth'
 ], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
     Route::get('admin-news', [NewsController::class, 'index'])->name('news');
+    Route::post('admin-news-post', [NewsController::class, 'store'])->name('news.post');
+    Route::post('admin-news-edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
+    Route::get('admin-news-delete/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
     Route::get('user', [UserController::class, 'index'])->name('user');
+    Route::post('user-post', [UserController::class, 'store'])->name('user.post');
+    Route::post('user-edit/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::get('user-delete/{id}', [UserController::class, 'destroy'])->name('user.delete');
+
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
